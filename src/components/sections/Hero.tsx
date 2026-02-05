@@ -59,17 +59,17 @@ export function Hero() {
                             initial={{ opacity: 0, y: 50 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.2 }}
-                            className="text-5xl md:text-8xl font-bold tracking-tighter text-slate-100 mb-8 font-display leading-[0.9]"
+                            className="text-5xl md:text-5xl font-bold tracking-tighter text-slate-100 mb-8 font-display leading-[0.9]"
                         >
-                            LOGIC <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand to-violet-500">&</span> <br />
-                            PASSION
+                            Hello , I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand to-violet-500">Gimhan Inupa</span> <br />
+                        
                         </motion.h1>
 
                         <motion.p
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.4 }}
-                            className="text-slate-600 text-lg md:text-2xl mb-12 leading-relaxed font-light"
+                            className="text-slate-600 text-lg md:text-1.5xl mb-12 leading-relaxed font-light"
                         >
                             Forging scalable software solutions and capturing the beauty of the stillness in a chaotic world.
                         </motion.p>

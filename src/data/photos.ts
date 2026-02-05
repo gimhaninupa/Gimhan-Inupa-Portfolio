@@ -44,5 +44,12 @@ export const albums: Album[] = [
         coverId: "ethereal-evening-1",
         photoCount: 6,
         photos: generatePhotos("ethereal-evening", "Ethereal-Evening", 6)
-    }
+    },
+    {
+        id: "Convocation",
+        title: "Convocation",
+        coverId: "convocation-1",
+        photoCount: 14,
+        photos: generatePhotos("convocation", "Convocation", 14)
+    },
 ];

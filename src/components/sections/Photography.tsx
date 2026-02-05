@@ -97,7 +97,7 @@ export function Photography() {
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-90" />
                                     <div className="absolute bottom-0 left-0 p-8">
                                         <h3 className="text-2xl font-bold text-white mb-2">{album.title}</h3>
-                                        <p className="text-slate-300 text-sm uppercase tracking-wider">{album.photoCount} Photos</p>
+                                        <p className="text-white/80 text-sm uppercase tracking-wider">{album.photoCount} Photos</p>
                                     </div>
                                 </motion.div>
                             ))}
@@ -201,7 +201,7 @@ export function Photography() {
                             </div>
 
                             {/* Counter */}
-                            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-slate-600 text-sm font-medium px-4 py-2 bg-slate-100 rounded-full border border-slate-200">
+                            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-slate-950 text-sm font-medium px-4 py-2 bg-slate-100 rounded-full border border-slate-200">
                                 {currentPhotoIndex + 1} / {selectedAlbum.photos.length}
                             </div>
 

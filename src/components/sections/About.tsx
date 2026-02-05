@@ -33,8 +33,8 @@ export function About() {
                         className="w-full md:w-7/12"
                     >
                         <h2 className="text-3xl md:text-4xl font-bold mb-6 text-slate-100">
-                            Bridging the Gap Between <br />
-                            <span className="text-brand">Logic</span> & <span className="text-purple-500">Art</span>
+                            <br />
+                            <span className="text-brand">About</span> <span className="text-purple-500">Me</span>
                         </h2>
 
                         <div className="space-y-4 text-slate-400 text-base leading-relaxed">

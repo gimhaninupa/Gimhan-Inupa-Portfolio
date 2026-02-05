@@ -56,11 +56,11 @@ export function Navbar() {
                     'fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ease-in-out',
                     scrolled
                         ? 'top-6 w-[95%] max-w-5xl rounded-full bg-slate-900/80 backdrop-blur-xl shadow-lg shadow-black/10 py-3 px-6 border border-slate-800'
-                        : 'top-0 w-full max-w-7xl rounded-none bg-transparent py-6 px-6'
+                        : 'top-0 w-full max-w-full rounded-none bg-transparent py-6 px-10'
                 )}
             >
                 <div className="flex items-center justify-between">
-                    <Link to="/" className="text-xl font-bold tracking-tighter flex items-center gap-1 text-slate-100">
+                    <Link to="/" className="text-3xl font-bold tracking-tighter flex items-center gap-1 text-slate-100">
                         Gimhan<span className="text-brand"></span>
                     </Link>
 
