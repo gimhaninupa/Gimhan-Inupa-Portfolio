@@ -121,6 +121,9 @@ export function Contact() {
                         className="bg-slate-900 p-8 md:p-10 rounded-3xl border border-slate-800 shadow-xl"
                     >
                         <form onSubmit={onSubmit} className="space-y-6">
+                            {/* Honeypot for spam protection */}
+                            <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
+
                             <div className="space-y-2">
                                 <label className="text-sm font-medium text-slate-300 ml-1">Name</label>
                                 <input
