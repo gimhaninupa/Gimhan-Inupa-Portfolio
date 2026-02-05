@@ -21,7 +21,7 @@ export function Experience() {
         {
             id: 3,
             role: "Bsc Hons in Software Engineering (Undergraduate)",
-            company: "Sri Lanka Technological Campus (SLTC)",
+            company: "Sri Lanka Technology Campus (SLTC)",
             period: "2024 - 2028",
             location: "Padukka, Sri Lanka",
         },
