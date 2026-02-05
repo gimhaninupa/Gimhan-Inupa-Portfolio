@@ -14,6 +14,7 @@ export function Contact() {
         const formData = new FormData(event.currentTarget);
 
         formData.append("access_key", "8272ddd8-9abc-4c51-9b56-964384936b7e");
+        formData.append("subject", "New Contact Form Submission from Portfolio");
 
         try {
             const response = await fetch("https://api.web3forms.com/submit", {
@@ -28,13 +29,18 @@ export function Contact() {
                 event.currentTarget.reset();
             } else {
                 console.error("Error", data);
-                setResult(data.message);
+                setResult(data.message || "Failed to send message.");
             }
         } catch (error) {
             console.error("Error", error);
-            setResult("Something went wrong!");
+            if (error instanceof Error) {
+                setResult(`Error: ${error.message}`);
+            } else {
+                setResult("Something went wrong! Please check your connection.");
+            }
         } finally {
             setIsSubmitting(false);
+            // Clear message after 5 seconds
             setTimeout(() => setResult(""), 5000);
         }
     };

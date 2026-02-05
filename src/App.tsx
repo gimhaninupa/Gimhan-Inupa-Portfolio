@@ -7,13 +7,16 @@ import { ProjectVideoPage } from './pages/ProjectVideoPage';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
-import { CustomCursor } from './components/ui/CustomCursor';
+
+
+
+import { ScrollToTop } from './components/utils/ScrollToTop';
 
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-slate-950 text-slate-50 cursor-none">
-        <CustomCursor />
+      <ScrollToTop />
+      <div className="min-h-screen bg-slate-950 text-slate-50">
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />

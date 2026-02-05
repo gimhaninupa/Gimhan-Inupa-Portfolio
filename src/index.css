@@ -61,7 +61,6 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    cursor: none;
   }
 
   body {
@@ -79,11 +78,7 @@
     font-family: var(--font-display);
   }
 
-  @media (hover: none) and (pointer: coarse) {
-    html {
-      cursor: auto;
-    }
-  }
+
 }
 
 /* Custom Scrollbar */

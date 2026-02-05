@@ -2,53 +2,17 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Camera, Code } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Magnetic } from '../ui/Magnetic';
-import { useTheme } from '../../context/ThemeContext';
 
 export function Hero() {
-    const { theme } = useTheme();
-
     return (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-950 selection:bg-brand/30 selection:text-white">
+        <section className="relative min-h-screen pt-32 flex items-center justify-center overflow-hidden bg-slate-950 selection:bg-brand/30 selection:text-white">
 
             {/* Dynamic Background - Animated Grid Beams */}
             <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
                 {/* Base Grid */}
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--bg-border)_1px,transparent_1px),linear-gradient(to_bottom,var(--bg-border)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-[0.2] dark:opacity-[0.2]" />
 
-                {/* Meteor Shower / Falling Stars */}
-                <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                    {[
-                        { left: "10%", delay: 0, duration: 3 },
-                        { left: "30%", delay: 2, duration: 4 },
-                        { left: "50%", delay: 5, duration: 3 },
-                        { left: "70%", delay: 1, duration: 5 },
-                        { left: "90%", delay: 3, duration: 4 },
-                        { left: "20%", delay: 6, duration: 3 },
-                        { left: "80%", delay: 8, duration: 4 },
-                    ].map((meteor, i) => (
-                        <motion.div
-                            key={i}
-                            initial={{ top: -100, x: 0, opacity: 1 }}
-                            animate={{ top: "150%", x: -200, opacity: 0 }}
-                            transition={{
-                                duration: meteor.duration,
-                                repeat: Infinity,
-                                ease: "linear",
-                                delay: meteor.delay,
-                            }}
-                            style={{
-                                left: meteor.left,
-                                position: 'absolute',
-                                backgroundColor: theme === 'dark' ? '#FFFFFF' : '#0000FF',
-                                boxShadow: theme === 'dark' ? '0 0 15px 2px rgba(255,255,255,0.5)' : '0 0 15px 2px rgba(0,0,255,0.6)',
-                                borderRadius: '50%',
-                                width: '12px',
-                                height: '12px',
-                            }}
-                            className="z-0"
-                        />
-                    ))}
-                </div>
+
 
                 {/* Ambient Glows */}
                 <div className="absolute top-[-20%] left-[-10%] w-[70vw] h-[70vw] bg-brand/10 dark:bg-brand/5 rounded-full blur-[120px] mix-blend-multiply dark:mix-blend-screen animate-pulse" />
@@ -75,14 +39,6 @@ export function Hero() {
                                 />
                             </div>
                             {/* Floating Badge */}
-                            <motion.div
-                                animate={{ y: [0, -10, 0] }}
-                                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                                className="absolute bottom-4 right-4 bg-slate-900 border border-slate-800 p-3 rounded-2xl shadow-xl flex items-center gap-2"
-                            >
-                                <span className="text-2xl">👋</span>
-                                <span className="font-bold text-slate-100">Hi there!</span>
-                            </motion.div>
                         </div>
                     </motion.div>
 

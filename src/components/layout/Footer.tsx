@@ -1,7 +1,29 @@
 import { Mail } from 'lucide-react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { contactData } from '../../data/contact';
 
 export function Footer() {
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const handleNavClick = (href: string) => {
+        if (href.startsWith('#')) {
+            if (location.pathname !== '/') {
+                navigate('/');
+                setTimeout(() => {
+                    const element = document.querySelector(href);
+                    element?.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
+            } else {
+                const element = document.querySelector(href);
+                element?.scrollIntoView({ behavior: 'smooth' });
+            }
+        } else {
+            navigate(href);
+            window.scrollTo(0, 0);
+        }
+    };
+
     return (
         <footer className="bg-slate-950 py-20 border-t border-slate-900">
             <div className="max-w-7xl mx-auto px-6">
@@ -21,19 +43,19 @@ export function Footer() {
                         <h3 className="text-slate-100 font-bold mb-6 text-lg">Quick Links</h3>
                         <div className="grid grid-cols-1 gap-3">
                             {[
-                                { name: 'Home', href: '#' },
+                                { name: 'Home', href: '/' },
                                 { name: 'About Me', href: '#about' },
                                 { name: 'Engineering', href: '#engineering' },
                                 { name: 'Photography', href: '/photography' },
                                 { name: 'Contact', href: '#contact' }
                             ].map((item) => (
-                                <a
+                                <button
                                     key={item.name}
-                                    href={item.href}
-                                    className="text-slate-600 hover:text-brand transition-colors w-fit"
+                                    onClick={() => handleNavClick(item.href)}
+                                    className="text-slate-600 hover:text-brand transition-colors w-fit text-left"
                                 >
                                     {item.name}
-                                </a>
+                                </button>
                             ))}
                         </div>
                     </div>
