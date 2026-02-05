@@ -5,7 +5,7 @@ import { useLocation } from 'react-router-dom';
 export function WelcomeScreen() {
     const location = useLocation();
     const [isVisible, setIsVisible] = useState(true);
-    const text = "Gimhan Inupa";
+    const text = "Gimhan Inupa...";
 
     useEffect(() => {
         // Reset state on route change or initial load
