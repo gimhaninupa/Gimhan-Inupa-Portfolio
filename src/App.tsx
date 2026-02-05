@@ -11,11 +11,13 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
 import { ScrollToTop } from './components/utils/ScrollToTop';
+import { WelcomeScreen } from './components/ui/WelcomeScreen';
 
 function App() {
   return (
     <Router>
       <ScrollToTop />
+      <WelcomeScreen />
       <div className="min-h-screen bg-slate-950 text-slate-50">
         <Navbar />
         <Routes>
