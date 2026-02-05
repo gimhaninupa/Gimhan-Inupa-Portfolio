@@ -95,6 +95,7 @@ export function Engineering() {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
+                            transition={{ duration: 0.2 }}
                             onClick={() => setSelectedProject(null)}
                             className="absolute inset-0 bg-slate-900/40 backdrop-blur-sm"
                         />
@@ -104,6 +105,7 @@ export function Engineering() {
                             layoutId={`project-card-${selectedProject.id}`}
                             className="relative w-full max-w-4xl bg-slate-900 rounded-3xl shadow-2xl shadow-black/50 overflow-hidden flex flex-col md:flex-row max-h-[90vh] border border-slate-800"
                             onClick={(e) => e.stopPropagation()}
+                            transition={{ type: "spring", stiffness: 300, damping: 30 }}
                         >
                             {/* Close Button */}
                             <button

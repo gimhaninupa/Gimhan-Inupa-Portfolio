@@ -2,6 +2,7 @@ import { Github, Linkedin, Facebook, Instagram } from 'lucide-react';
 
 export const contactData = {
     email: "gimhaninupa94@gmail.com",
+    phone: "+94 77 411 1808", // Update this with your actual number
     location: {
         city: "Balangoda",
         country: "Sri Lanka",
