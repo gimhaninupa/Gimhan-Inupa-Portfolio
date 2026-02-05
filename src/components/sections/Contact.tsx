@@ -13,7 +13,7 @@ export function Contact() {
         setResult("");
         const formData = new FormData(event.currentTarget);
 
-        formData.append("access_key", "8272ddd8-9abc-4c51-9b56-964384936b7e");
+        formData.append("access_key", "bc5b705f-070f-41c6-b37e-6092b4e21fe8");
         formData.append("subject", "New Contact Form Submission from Portfolio");
 
         try {
