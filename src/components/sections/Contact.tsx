@@ -9,9 +9,10 @@ export function Contact() {
 
     const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+        const form = event.currentTarget; // Capture form reference immediately
         setIsSubmitting(true);
         setResult("");
-        const formData = new FormData(event.currentTarget);
+        const formData = new FormData(form);
 
         formData.append("access_key", "bc5b705f-070f-41c6-b37e-6092b4e21fe8");
         formData.append("subject", "New Contact Form Submission from Portfolio");
@@ -26,7 +27,7 @@ export function Contact() {
 
             if (data.success) {
                 setResult("Message sent successfully!");
-                event.currentTarget.reset();
+                form.reset(); // Use captured form reference
             } else {
                 console.error("Error", data);
                 setResult(data.message || "Failed to send message.");
