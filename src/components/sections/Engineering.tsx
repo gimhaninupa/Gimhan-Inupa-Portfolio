@@ -116,7 +116,7 @@ export function Engineering() {
                             </button>
 
                             {/* Image Side (Left) */}
-                            <div className="w-full md:w-1/2 relative min-h-[300px] md:min-h-full bg-slate-950 flex items-center justify-center overflow-hidden">
+                            <div className="w-full md:w-1/2 relative h-[300px] md:h-auto bg-slate-950 flex items-center justify-center overflow-hidden shrink-0">
                                 {/* Blurred Background */}
                                 <img
                                     src={selectedProject.image}
@@ -133,69 +133,75 @@ export function Engineering() {
                             </div>
 
                             {/* Content Side (Right) */}
-                            <div className="w-full md:w-1/2 p-8 md:p-10 flex flex-col overflow-y-auto">
-                                <div className="mb-6">
-                                    <div className="flex items-center gap-3 mb-4">
-                                        <div className="p-2.5 bg-brand/10 rounded-xl text-brand">
-                                            <Code2 size={24} />
+                            <div className="w-full md:w-1/2 flex flex-col overflow-hidden bg-slate-900">
+                                {/* Scrollable Content */}
+                                <div className="flex-1 overflow-y-auto p-6 md:p-10">
+                                    <div className="mb-6">
+                                        <div className="flex items-center gap-3 mb-4">
+                                            <div className="p-2.5 bg-brand/10 rounded-xl text-brand">
+                                                <Code2 size={24} />
+                                            </div>
+                                            <motion.h3
+                                                layoutId={`project-title-${selectedProject.id}`}
+                                                className="text-3xl font-bold text-slate-100"
+                                            >
+                                                {selectedProject.title}
+                                            </motion.h3>
                                         </div>
-                                        <motion.h3
-                                            layoutId={`project-title-${selectedProject.id}`}
-                                            className="text-3xl font-bold text-slate-100"
-                                        >
-                                            {selectedProject.title}
-                                        </motion.h3>
+
+                                        <p className="text-slate-400 text-lg leading-relaxed">
+                                            {selectedProject.description}
+                                        </p>
                                     </div>
 
-                                    <p className="text-slate-400 text-lg leading-relaxed">
-                                        {selectedProject.description}
-                                    </p>
-                                </div>
-
-                                <div className="mb-8">
-                                    <h4 className="text-sm font-bold text-slate-200 uppercase tracking-widest mb-3">Technologies</h4>
-                                    <div className="flex flex-wrap gap-2">
-                                        {selectedProject.tags.map(tag => (
-                                            <span key={tag} className="px-3 py-1.5 text-sm font-medium text-slate-300 bg-slate-800 rounded-lg border border-slate-700">
-                                                {tag}
-                                            </span>
-                                        ))}
+                                    <div className="mb-4">
+                                        <h4 className="text-sm font-bold text-slate-200 uppercase tracking-widest mb-3">Technologies</h4>
+                                        <div className="flex flex-wrap gap-2">
+                                            {selectedProject.tags.map(tag => (
+                                                <span key={tag} className="px-3 py-1.5 text-sm font-medium text-slate-300 bg-slate-800 rounded-lg border border-slate-700">
+                                                    {tag}
+                                                </span>
+                                            ))}
+                                        </div>
                                     </div>
                                 </div>
 
-                                <div className="mt-auto flex gap-4 pt-6 border-t border-slate-800">
-                                    {selectedProject.video ? (
-                                        <Link
-                                            to={`/project/${selectedProject.id}`}
-                                            className="flex-1 py-3 bg-brand text-white rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-brand/90 transition-all shadow-lg shadow-brand/20"
-                                        >
-                                            <ExternalLink size={18} />
-                                            {selectedProject.buttonText || "Live Demo"}
-                                        </Link>
-                                    ) : (
-                                        selectedProject.links.demo && (
-                                            <a
-                                                href={selectedProject.links.demo}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
+                                {/* Fixed Footer Actions */}
+                                <div className="p-6 md:p-10 pt-4 border-t border-slate-800 bg-slate-900 shrink-0 z-20">
+                                    <div className="flex gap-4">
+                                        {selectedProject.video ? (
+                                            <Link
+                                                to={`/project/${selectedProject.id}`}
                                                 className="flex-1 py-3 bg-brand text-white rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-brand/90 transition-all shadow-lg shadow-brand/20"
                                             >
                                                 <ExternalLink size={18} />
                                                 {selectedProject.buttonText || "Live Demo"}
+                                            </Link>
+                                        ) : (
+                                            selectedProject.links.demo && (
+                                                <a
+                                                    href={selectedProject.links.demo}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="flex-1 py-3 bg-brand text-white rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-brand/90 transition-all shadow-lg shadow-brand/20"
+                                                >
+                                                    <ExternalLink size={18} />
+                                                    {selectedProject.buttonText || "Live Demo"}
+                                                </a>
+                                            )
+                                        )}
+                                        {selectedProject.links.github && (
+                                            <a
+                                                href={selectedProject.links.github}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="flex-1 py-3 bg-brand text-white rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-brand/90 transition-all shadow-lg shadow-brand/20"
+                                            >
+                                                <Github size={18} />
+                                                View Source
                                             </a>
-                                        )
-                                    )}
-                                    {selectedProject.links.github && (
-                                        <a
-                                            href={selectedProject.links.github}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="flex-1 py-3 bg-brand text-white rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-brand/90 transition-all shadow-lg shadow-brand/20"
-                                        >
-                                            <Github size={18} />
-                                            View Source
-                                        </a>
-                                    )}
+                                        )}
+                                    </div>
                                 </div>
                             </div>
                         </motion.div>
