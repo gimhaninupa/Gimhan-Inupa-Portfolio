@@ -107,6 +107,5 @@ export const skills = [
     { name: "Dart", icon: "https://cdn.simpleicons.org/dart" },
     { name: "Adobe Photoshop", icon: "/icons/photoshop.svg" },
     { name: "Adobe Premiere Pro", icon: "/icons/premiere.svg" },
-    { name: "Adobe Lightroom", icon: "/icons/lightroom.svg" },
-    { name: "Adobe Illustrator", icon: "/icons/illustrator.svg" }
+    { name: "Adobe Lightroom", icon: "/icons/lightroom.svg" }
 ];
