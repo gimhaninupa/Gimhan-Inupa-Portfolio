@@ -30,7 +30,7 @@ export function Hero() {
                                 <img
                                     src="/Gimhan.jpg"
                                     alt="Profile"
-                                    className="w-full h-full object-cover"
+                                    className="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-105"
                                 />
                             </div>
                         </div>

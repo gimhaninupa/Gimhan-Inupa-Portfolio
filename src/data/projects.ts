@@ -14,6 +14,18 @@ export interface Project {
 
 export const projects: Project[] = [
     {
+        id: "ecotrack",
+        title: "EcoTrack",
+        description: "Smart Waste Management System",
+        tags: ["React (TypeScript)", "Tailwind CSS", " Firebase (Firestore, Auth)"],
+        links: {
+            demo: "https://eco-track-delta-gules.vercel.app/",
+            github: "https://github.com/gimhaninupa/EcoTrack"
+        },
+        image: "/images/projects/Projects/EcoTrack/EcoTrack.png",
+        buttonText: "Visit Website"
+    },
+    {
         id: "arclight",
         title: "ARCLIGHT",
         description: "A Cinematic Photography Website",
