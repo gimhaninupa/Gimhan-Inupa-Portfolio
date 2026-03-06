@@ -8,8 +8,17 @@ export interface Certificate {
 }
 
 export const certificates: Certificate[] = [
+
     {
         id: 1,
+        title: "Introduction to Software Engineering",
+        issuer: "IBM",
+        date: "2026",
+        credentialUrl: "https://coursera.org/share/f0bc0224eb7e84eb4430001e5cd2fa81",
+        image: "/images/certificates/intro-software-engineering.png"
+    },
+    {
+        id: 2,
         title: "AWS S3 Basics",
         issuer: "Coursera",
         date: "2025",
@@ -17,7 +26,7 @@ export const certificates: Certificate[] = [
         image: "/images/certificates/aws-s3-basics.png"
     },
     {
-        id: 2,
+        id: 3,
         title: "Azure create a REST API using NodeJS Serverless Functions",
         issuer: "Coursera",
         date: "2025",
@@ -25,7 +34,7 @@ export const certificates: Certificate[] = [
         image: "/images/certificates/azure-api-cert.png"
     },
     {
-        id: 3,
+        id: 4,
         title: "Build a free website with WordPress",
         issuer: "Coursera",
         date: "2025",
