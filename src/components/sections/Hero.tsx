@@ -28,7 +28,7 @@ export function Hero() {
 
                             <div className="relative w-full h-full rounded-full overflow-hidden border-8 border-slate-900/50 shadow-2xl">
                                 <img
-                                    src="/Gimhan.jpg"
+                                    src="/Gimhan.png"
                                     alt="Profile"
                                     className="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-105"
                                 />
