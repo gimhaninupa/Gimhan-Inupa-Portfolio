@@ -8,19 +8,24 @@ export function WelcomeScreen() {
     const text = "Gimhan Inupa...";
 
     useEffect(() => {
-        // Reset state on route change or initial load
         setIsVisible(true);
+        // Prevent scrolling while the welcome screen is active
+        document.body.style.overflow = 'hidden';
 
         // Hide after animation + small delay
         const timer = setTimeout(() => {
             setIsVisible(false);
+            document.body.style.overflow = 'unset';
         }, 2500); // Adjust based on animation duration
 
-        return () => clearTimeout(timer);
+        return () => {
+            clearTimeout(timer);
+            document.body.style.overflow = 'unset';
+        };
     }, [location.pathname]);
 
     const container = {
-        hidden: { opacity: 0 },
+        hidden: { opacity: 1 }, // Start fully opaque instantly to block flashing
         show: {
             opacity: 1,
             transition: {
@@ -52,16 +57,17 @@ export function WelcomeScreen() {
     };
 
     return (
-        <AnimatePresence>
+        <AnimatePresence mode="wait">
             {isVisible && (
                 <motion.div
+                    key={`welcome-${location.pathname}`}
                     initial="hidden"
                     animate="show"
                     exit="exit"
                     variants={container}
                     className="fixed inset-0 z-[100] bg-slate-950 flex items-center justify-center"
                 >
-                    <div className="text-4xl md:text-6xl font-bold font-mono text-brand tracking-wider flex overflow-hidden">
+                    <div className="text-4xl md:text-6xl font-bold font-mono text-brand tracking-wider flex flex-wrap justify-center">
                         {text.split("").map((item, index) => (
                             <motion.span variants={child} key={index}>
                                 {item === " " ? "\u00A0" : item}

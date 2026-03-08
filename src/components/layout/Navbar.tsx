@@ -60,7 +60,16 @@ export function Navbar() {
                 )}
             >
                 <div className="flex items-center justify-between">
-                    <Link to="/" className="text-3xl font-bold tracking-tighter flex items-center gap-1 text-slate-100">
+                    <Link
+                        to="/"
+                        onClick={(e) => {
+                            if (location.pathname === '/') {
+                                e.preventDefault();
+                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                            }
+                        }}
+                        className="text-3xl font-bold tracking-tighter flex items-center gap-1 text-slate-100"
+                    >
                         Gimhan<span className="text-brand"></span>
                     </Link>
 

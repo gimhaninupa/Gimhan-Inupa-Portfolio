@@ -62,7 +62,7 @@ export function Footer() {
 
                     {/* Column 3: Connect With Us */}
                     <div>
-                        <h3 className="text-slate-100 font-bold mb-6 text-lg">Connect With Us</h3>
+                        <h3 className="text-slate-100 font-bold mb-6 text-lg">Connect With Me</h3>
                         <div className="space-y-8">
                             <div className="flex items-center gap-4">
                                 {contactData.socials.map((social, idx) => {
@@ -90,7 +90,7 @@ export function Footer() {
                 </div>
 
                 <div className="pt-8 border-t border-slate-200 text-center md:text-left text-slate-500 text-sm flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p>&copy; {new Date().getFullYear()} Gimhan. All rights reserved.</p>
+                    <p>&copy; {new Date().getFullYear()} Gimhan Inupa. All rights reserved.</p>
                     <div className="flex gap-6">
                     </div>
                 </div>
