@@ -13,7 +13,7 @@ export function Experience() {
         },
         {
             id: 2,
-            role: "Co-Founder & Web Developer",
+            role: "Co-Founder, Web Developer & Photographer",
             company: "ArcLight",
             period: "2025 - Present",
             location: "Remote",
