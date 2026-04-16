@@ -39,10 +39,10 @@ export function About() {
 
                         <div className="space-y-4 text-slate-400 text-base leading-relaxed">
                             <p>
-                                I’m a full-stack Software Engineering undergraduate at Sri Lanka Technological Campus (SLTC) and a freelance photographer, passionate about blending technology with creativity. With a strong foundation in software development, web technologies, and data-driven problem-solving, I enjoy building innovative digital solutions that make an impact.
+                                I’m a Software Engineering undergraduate at Sri Lanka Technological Campus (SLTC) and a freelance photographer, passionate about blending technology with creativity. With a strong foundation in software development, web technologies, and data driven problem solving, I enjoy building innovative digital solutions that make an impact.
                             </p>
                             <p>
-                                Alongside coding, photography allows me to express my artistic side — capturing stories, emotions, and perspectives through my lens. I also volunteer as a photographer in the Media Unit of SLTC, where I contribute to documenting campus events and creative projects. Whether I’m developing an application or composing a shot, I’m driven by curiosity, precision, and a desire to create meaningful experiences.
+                                Alongside coding, photography allows me to express my artistic side capturing stories, emotions, and perspectives through my lens. I also volunteer as a photographer in the Media Unit of SLTC, where I contribute to documenting campus events and creative projects. Whether I’m developing an application or composing a shot, I’m driven by curiosity, precision, and a desire to create meaningful experiences.
                             </p>
                         </div>
 

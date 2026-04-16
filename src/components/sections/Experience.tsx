@@ -19,6 +19,13 @@ export function Experience() {
             location: "Remote",
         },
         {
+            id: 2,
+            role: "Photographer",
+            company: "Media Unit of SLTC",
+            period: "2025 - Present",
+            location: "Padukka, Sri Lanka",
+        },
+        {
             id: 3,
             role: "Bsc Hons in Software Engineering (Undergraduate)",
             company: "Sri Lanka Technology Campus (SLTC)",
