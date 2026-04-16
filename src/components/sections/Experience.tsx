@@ -7,7 +7,7 @@ export function Experience() {
         {
             id: 1,
             role: "Software Engineer",
-            company: "Zylon Labs",
+            company: "VOXO Digital",
             period: "2025 - Present",
             location: "Remote",
         },
