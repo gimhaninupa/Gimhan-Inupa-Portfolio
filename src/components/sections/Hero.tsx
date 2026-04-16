@@ -53,7 +53,7 @@ export function Hero() {
                             initial={{ opacity: 0, y: 50 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.2 }}
-                            className="text-5xl md:text-6xl font-bold tracking-tighter text-slate-100 mb-8 font-display leading-[1.1]"
+                            className="text-5xl md:text-5xl font-bold tracking-tighter text-slate-100 mb-8 font-display leading-[1.1]"
                         >
                             Hello, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand to-violet-600">Gimhan Inupa</span> <br />
 

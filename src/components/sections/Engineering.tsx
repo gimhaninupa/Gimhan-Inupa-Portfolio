@@ -3,11 +3,14 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { projects, skills, type Project } from '../../data/projects';
 import { ProjectCard } from '../ui/ProjectCard';
-import { Github, ExternalLink, X, Code2 } from 'lucide-react';
+import { Github, ExternalLink, X, Code2, ChevronDown, ChevronUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export function Engineering() {
     const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+    const [showAll, setShowAll] = useState(false);
+
+    const displayedProjects = showAll ? projects : projects.slice(0, 3);
 
     return (
         <section id="engineering" className="py-24 bg-slate-950 relative">
@@ -27,16 +30,39 @@ export function Engineering() {
                 </div>
 
                 {/* Projects Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-32">
-                    {projects.map((project, index) => (
-                        <ProjectCard
-                            key={project.id}
-                            project={project}
-                            index={index}
-                            onClick={setSelectedProject}
-                        />
-                    ))}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                    <AnimatePresence mode="popLayout">
+                        {displayedProjects.map((project, index) => (
+                            <ProjectCard
+                                key={project.id}
+                                project={project}
+                                index={index}
+                                onClick={setSelectedProject}
+                            />
+                        ))}
+                    </AnimatePresence>
                 </div>
+
+                {/* View More Button */}
+                {projects.length > 3 && (
+                    <div className="flex justify-center mb-32">
+                        <motion.button
+                            onClick={() => setShowAll(!showAll)}
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="group flex items-center gap-2 px-8 py-3 bg-slate-900 border border-slate-800 text-slate-300 rounded-full font-semibold hover:bg-slate-800 hover:text-brand transition-all shadow-lg"
+                        >
+                            <span>{showAll ? "Show Less" : "View More Projects"}</span>
+                            {showAll ? (
+                                <ChevronUp className="w-5 h-5 group-hover:-translate-y-1 transition-transform" />
+                            ) : (
+                                <ChevronDown className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
+                            )}
+                        </motion.button>
+                    </div>
+                )}
 
                 {/* Skills Section */}
                 <div>
