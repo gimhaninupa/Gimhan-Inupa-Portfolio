@@ -58,7 +58,7 @@ export function Experience() {
 
                 <div className="relative">
                     {/* Center Line - Thicker and Theme Aware */}
-                    <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 h-full w-0.5 bg-slate-300 dark:bg-slate-800" />
+                    <div className="absolute left-0 md:left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-slate-300 dark:bg-slate-800" />
 
                     <div className="space-y-4 md:space-y-0">
                         {experiences.map((exp, index) => (
@@ -71,7 +71,7 @@ export function Experience() {
                                 className={`relative flex flex-col md:flex-row gap-8 md:gap-0 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}
                             >
                                 {/* Content Side */}
-                                <div className="md:w-1/2 w-full px-0 md:px-12">
+                                <div className="md:w-1/2 w-full pl-10 pr-0 md:px-12">
                                     <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-8 rounded-2xl hover:shadow-lg transition-all duration-300 hover:border-brand/20 group">
                                         <div className="flex flex-col gap-4 mb-4">
                                             <div className="flex justify-between items-start">
@@ -98,7 +98,7 @@ export function Experience() {
                                 </div>
 
                                 {/* Timeline Point */}
-                                <div className="absolute left-0 top-0 md:left-1/2 md:top-8 transform md:-translate-x-1/2 flex items-center justify-center w-8 h-8">
+                                <div className="absolute left-0 top-0 md:left-1/2 md:top-8 transform -translate-x-1/2 flex items-center justify-center w-8 h-8">
                                     <div className="w-4 h-4 bg-brand rounded-full ring-4 ring-slate-50 dark:ring-slate-950 shadow-sm z-10" />
                                 </div>
 
