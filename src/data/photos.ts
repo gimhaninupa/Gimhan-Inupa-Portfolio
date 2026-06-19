@@ -13,14 +13,22 @@ export interface Album {
 }
 
 // Helper to generate photo objects for sequentially named files (1.jpg, 2.jpg, etc.)
-const generatePhotos = (albumId: string, folderName: string, count: number) => {
-  return Array.from({ length: count }).map((_, i) => ({
-    id: `${albumId}-${i + 1}`,
-    // Assuming .jpg - change extension if needed
-    url: `/images/albums/${folderName}/${i + 1}.jpg`,
-    // Randomize aspect ratio for the masonry layout
-    aspectRatio: [1.5, 0.8, 1][(i + 1) % 3],
-  }));
+const generatePhotos = (albumId: string, folderName: string, count: number, excludeList: number[] = []) => {
+  const photos = [];
+  let fileNum = 1;
+  while (photos.length < count) {
+    if (!excludeList.includes(fileNum)) {
+      photos.push({
+        id: `${albumId}-${photos.length + 1}`,
+        // Assuming .jpg - change extension if needed
+        url: `/images/albums/${folderName}/${fileNum}.jpg`,
+        // Randomize aspect ratio for the masonry layout
+        aspectRatio: [1.5, 0.8, 1][photos.length % 3],
+      });
+    }
+    fileNum++;
+  }
+  return photos;
 };
 
 export const albums: Album[] = [
@@ -36,23 +44,23 @@ export const albums: Album[] = [
     id: "seethawaloka",
     title: "Seethawaloka",
     coverId: "seethawaloka-1",
-    photoCount: 27, // Adjust exact count if needed
-    photos: generatePhotos("seethawaloka", "Seethawaloka", 27),
+    photoCount: 26,
+    photos: generatePhotos("seethawaloka", "Seethawaloka", 26, [13]),
   },
 
   {
     id: "blissful-bash",
     title: "Blissful Bash Night",
     coverId: "blissful-bash-1",
-    photoCount: 20, // Adjust exact count if needed
+    photoCount: 20,
     photos: generatePhotos("blissful-bash", "Blissful-Bash-Night", 20),
   },
   {
     id: "echoes-holi",
     title: "Echoes of Holi",
     coverId: "echoes-holi-1",
-    photoCount: 33,
-    photos: generatePhotos("echoes-holi", "Echoes-of-Holi", 33),
+    photoCount: 32,
+    photos: generatePhotos("echoes-holi", "Echoes-of-Holi", 32),
   },
   {
     id: "Convocation",
