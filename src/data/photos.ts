@@ -33,13 +33,26 @@ const generatePhotos = (albumId: string, folderName: string, count: number, excl
 
 export const albums: Album[] = [
   {
+    id: "synergy-26",
+    title: "Synergy'26",
+    coverId: "synergy-26-1",
+    photoCount: 79,
+    photos: generatePhotos("synergy-26", "Synergy’26", 79),
+  },
+  {
+    id: "terra-fashion-show",
+    title: "Terra Fashion Show",
+    coverId: "terra-fashion-show-1",
+    photoCount: 29,
+    photos: generatePhotos("terra-fashion-show", "Terra-Fashion-Show", 29),
+  },
+  {
     id: "mathaka-handiya",
     title: "Mathaka Handiya",
     coverId: "mathaka-handiya-1",
     photoCount: 41,
     photos: generatePhotos("mathaka-handiya", "Mathaka-Handiya", 41),
   },
-
   {
     id: "seethawaloka",
     title: "Seethawaloka",
@@ -47,7 +60,6 @@ export const albums: Album[] = [
     photoCount: 26,
     photos: generatePhotos("seethawaloka", "Seethawaloka", 26, [13]),
   },
-
   {
     id: "blissful-bash",
     title: "Blissful Bash Night",
@@ -77,3 +89,4 @@ export const albums: Album[] = [
     photos: generatePhotos("ethereal-evening", "Ethereal-Evening", 6),
   },
 ];
+

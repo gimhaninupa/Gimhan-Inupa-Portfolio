@@ -89,10 +89,8 @@ export function Footer() {
                     </div>
                 </div>
 
-                <div className="pt-8 border-t border-slate-200 text-center md:text-left text-slate-500 text-sm flex flex-col md:flex-row justify-between items-center gap-4">
+                <div className="pt-8 border-t border-slate-200 text-center text-slate-500 text-sm flex justify-center items-center">
                     <p>&copy; {new Date().getFullYear()} Gimhan Inupa. All rights reserved.</p>
-                    <div className="flex gap-6">
-                    </div>
                 </div>
             </div>
         </footer>
