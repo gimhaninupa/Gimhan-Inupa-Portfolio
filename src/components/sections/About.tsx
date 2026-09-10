@@ -13,13 +13,13 @@ export function About() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="w-full md:w-5/12 relative max-w-sm mx-auto md:mx-0"
+                        className="w-full md:w-5/12 relative max-w-xs md:max-w-[400px] mx-auto md:mx-0"
                     >
-                        <div className="aspect-[3/4] rounded-2xl overflow-hidden bg-slate-900 relative z-10 transition-transform">
+                        <div className="aspect-[3/4] rounded-2xl overflow-hidden bg-slate-900 relative z-10 transition-transform shadow-xl border border-slate-800/50">
                             <img
                                 src="/images/about/Profile.jpg"
                                 alt="Portrait"
-                                className="w-full h-full object-cover transition-all duration-700"
+                                className="w-full h-full object-cover object-top transition-all duration-700 hover:scale-105"
                             />
                         </div>
                     </motion.div>

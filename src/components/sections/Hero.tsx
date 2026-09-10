@@ -30,7 +30,8 @@ export function Hero() {
                                 <img
                                     src="/Gimhan.png"
                                     alt="Profile"
-                                    className="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-105"
+                                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                                    style={{ objectPosition: 'center 35%' }}
                                 />
                             </div>
                         </div>
