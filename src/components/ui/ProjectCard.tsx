@@ -18,7 +18,7 @@ export function ProjectCard({ project, index, onClick }: ProjectCardProps) {
             transition={{ duration: 0.5, delay: index * 0.1 }}
             viewport={{ once: true }}
             onClick={() => onClick(project)}
-            className="group relative bg-slate-900 border border-slate-200 rounded-2xl overflow-hidden hover:border-brand/30 hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col h-full"
+            className="group relative bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-brand/30 hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col h-full"
         >
             {/* Image Section */}
             {project.image && (
@@ -47,18 +47,18 @@ export function ProjectCard({ project, index, onClick }: ProjectCardProps) {
                     {project.title}
                 </motion.h3>
 
-                <p className="text-slate-400 mb-6 leading-relaxed line-clamp-3">
+                <p className="text-slate-300 mb-6 leading-relaxed line-clamp-3">
                     {project.description}
                 </p>
 
                 <div className="mt-auto pt-4 flex flex-wrap gap-2">
                     {project.tags.slice(0, 3).map(tag => (
-                        <span key={tag} className="px-3 py-1 text-xs font-medium text-slate-300 bg-slate-800 rounded-full border border-slate-700">
+                        <span key={tag} className="px-3 py-1 text-xs font-medium text-slate-300 bg-slate-800 rounded-full border border-slate-800">
                             {tag}
                         </span>
                     ))}
                     {project.tags.length > 3 && (
-                        <span className="px-3 py-1 text-xs font-medium text-slate-400 bg-slate-800 rounded-full border border-slate-700">
+                        <span className="px-3 py-1 text-xs font-medium text-slate-400 bg-slate-800 rounded-full border border-slate-800">
                             +{project.tags.length - 3}
                         </span>
                     )}

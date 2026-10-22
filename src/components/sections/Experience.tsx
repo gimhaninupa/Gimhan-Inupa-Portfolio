@@ -57,7 +57,7 @@ export function Experience() {
                     viewport={{ once: true }}
                     className="text-center mb-20"
                 >
-                    <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900 dark:text-slate-100">
+                    <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-100">
                         Education & <span className="text-brand">Experience</span>
                     </h2>
                     <div className="w-24 h-1 bg-brand mx-auto rounded-full" />
@@ -79,13 +79,13 @@ export function Experience() {
                             >
                                 {/* Content Side */}
                                 <div className="md:w-1/2 w-full pl-10 pr-0 md:px-12">
-                                    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-8 rounded-2xl hover:shadow-lg transition-all duration-300 hover:border-brand/20 group">
+                                    <div className="bg-slate-900 border border-slate-800 p-8 rounded-2xl hover:shadow-lg transition-all duration-300 hover:border-brand/20 group">
                                         <div className="flex flex-col gap-4 mb-4">
                                             <div className="flex justify-between items-start">
-                                                <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100 group-hover:text-brand transition-colors">
+                                                <h3 className="text-xl font-bold text-slate-100 group-hover:text-brand transition-colors">
                                                     {exp.role}
                                                 </h3>
-                                                <span className="md:hidden bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap">
+                                                <span className="md:hidden bg-slate-950 border border-slate-800 text-slate-400 px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap">
                                                     {exp.period}
                                                 </span>
                                             </div>
@@ -95,7 +95,7 @@ export function Experience() {
                                                     <Briefcase size={16} />
                                                     <span>{exp.company}</span>
                                                 </div>
-                                                <div className="flex items-center gap-1.5 text-slate-600 dark:text-slate-400">
+                                                <div className="flex items-center gap-1.5 text-slate-400">
                                                     <MapPin size={16} />
                                                     <span>{exp.location}</span>
                                                 </div>
@@ -106,12 +106,12 @@ export function Experience() {
 
                                 {/* Timeline Point */}
                                 <div className="absolute left-0 top-0 md:left-1/2 md:top-8 transform -translate-x-1/2 flex items-center justify-center w-8 h-8">
-                                    <div className="w-4 h-4 bg-brand rounded-full ring-4 ring-slate-50 dark:ring-slate-950 shadow-sm z-10" />
+                                    <div className="w-4 h-4 bg-brand rounded-full ring-4 ring-slate-950 shadow-sm z-10" />
                                 </div>
 
                                 {/* Date Side (Desktop only) */}
                                 <div className={`hidden md:flex md:w-1/2 px-12 items-center ${index % 2 === 0 ? 'justify-end' : 'justify-start'}`}>
-                                    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 px-4 py-2 rounded-full font-semibold shadow-sm flex items-center gap-2">
+                                    <div className="bg-slate-900 border border-slate-800 text-slate-400 px-4 py-2 rounded-full font-semibold shadow-sm flex items-center gap-2">
                                         <Calendar size={16} className="text-brand" />
                                         {exp.period}
                                     </div>

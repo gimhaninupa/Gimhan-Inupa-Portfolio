@@ -221,16 +221,16 @@ export function Engineering() {
                                             </motion.h3>
                                         </div>
 
-                                        <p className="text-slate-400 text-lg leading-relaxed">
+                                        <p className="text-slate-300 text-lg leading-relaxed">
                                             {selectedProject.description}
                                         </p>
                                     </div>
 
                                     <div className="mb-4">
-                                        <h4 className="text-sm font-bold text-slate-200 uppercase tracking-widest mb-3">Technologies</h4>
+                                        <h4 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-3">Technologies</h4>
                                         <div className="flex flex-wrap gap-2">
                                             {selectedProject.tags.map(tag => (
-                                                <span key={tag} className="px-3 py-1.5 text-sm font-medium text-slate-300 bg-slate-800 rounded-lg border border-slate-700">
+                                                <span key={tag} className="px-3 py-1.5 text-sm font-medium text-slate-300 bg-slate-800 rounded-lg border border-slate-800">
                                                     {tag}
                                                 </span>
                                             ))}

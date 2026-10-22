@@ -11,7 +11,7 @@
 
   --text-main: #002455;
   --text-body: #334155;
-  --text-muted: #64748b;
+  --text-muted: #52627a;
 
   --color-brand: #002455;
   /* Navy Blue Brand */
@@ -100,4 +100,15 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--scroll-hover);
+}
+
+/* Light mode text fallbacks to prevent invisible text */
+:root:not(.dark) .text-slate-900,
+:root:not(.dark) .text-slate-950 {
+  color: var(--text-main);
+}
+
+:root:not(.dark) .text-slate-800,
+:root:not(.dark) .text-slate-700 {
+  color: var(--text-body);
 }

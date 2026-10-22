@@ -33,7 +33,7 @@ export function Footer() {
                         <div className="text-2xl font-bold tracking-tighter text-slate-100">
                             Gimhan<span className="text-brand"></span>
                         </div>
-                        <p className="text-slate-600 max-w-xs leading-relaxed">
+                        <p className="text-slate-400 max-w-xs leading-relaxed">
                             Empowering innovation through code and creativity. Building the next generation of digital experiences.
                         </p>
                     </div>
@@ -52,7 +52,7 @@ export function Footer() {
                                 <button
                                     key={item.name}
                                     onClick={() => handleNavClick(item.href)}
-                                    className="text-slate-600 hover:text-brand transition-colors w-fit text-left"
+                                    className="text-slate-400 hover:text-brand transition-colors w-fit text-left"
                                 >
                                     {item.name}
                                 </button>
@@ -73,7 +73,7 @@ export function Footer() {
                                             href={social.href}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="w-12 h-12 flex items-center justify-center rounded-xl bg-slate-200 text-slate-600 hover:bg-brand hover:text-white transition-all shadow-sm hover:shadow-md"
+                                            className="w-12 h-12 flex items-center justify-center rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:bg-brand hover:text-white transition-all shadow-sm hover:shadow-md"
                                         >
                                             <Icon size={20} />
                                         </a>
@@ -81,7 +81,7 @@ export function Footer() {
                                 })}
                             </div>
 
-                            <a href={`mailto:${contactData.email}`} className="flex items-center gap-3 text-slate-600 hover:text-brand transition-colors group">
+                            <a href={`mailto:${contactData.email}`} className="flex items-center gap-3 text-slate-400 hover:text-brand transition-colors group">
                                 <Mail size={20} className="group-hover:text-brand" />
                                 <span>{contactData.email}</span>
                             </a>
@@ -89,7 +89,7 @@ export function Footer() {
                     </div>
                 </div>
 
-                <div className="pt-8 border-t border-slate-200 text-center text-slate-500 text-sm flex justify-center items-center">
+                <div className="pt-8 border-t border-slate-800 text-center text-slate-500 text-sm flex justify-center items-center">
                     <p>&copy; {new Date().getFullYear()} Gimhan Inupa. All rights reserved.</p>
                 </div>
             </div>

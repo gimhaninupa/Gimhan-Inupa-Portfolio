@@ -24,7 +24,7 @@ export function ProjectVideoPage() {
                 <div className="mb-8">
                     <Link
                         to="/"
-                        className="inline-flex items-center gap-2 text-slate-600 dark:text-slate-400 hover:text-brand transition-colors font-medium text-lg group"
+                        className="inline-flex items-center gap-2 text-slate-400 hover:text-brand transition-colors font-medium text-lg group"
                     >
                         <ArrowLeft className="group-hover:-translate-x-1 transition-transform" />
                         Back to Portfolio
@@ -35,7 +35,7 @@ export function ProjectVideoPage() {
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="bg-white dark:bg-slate-900 rounded-3xl shadow-xl overflow-hidden border border-slate-200 dark:border-slate-800"
+                    className="bg-slate-900 rounded-3xl shadow-xl overflow-hidden border border-slate-800"
                 >
                     <div className="aspect-video w-full bg-black relative">
                         <video
@@ -47,8 +47,8 @@ export function ProjectVideoPage() {
                         />
                     </div>
                     <div className="p-8 md:p-12">
-                        <h1 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-100 mb-4">{project.title}</h1>
-                        <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed max-w-3xl">{project.description}</p>
+                        <h1 className="text-3xl md:text-4xl font-bold text-slate-100 mb-4">{project.title}</h1>
+                        <p className="text-slate-300 text-lg leading-relaxed max-w-3xl">{project.description}</p>
                     </div>
                 </motion.div>
             </div>

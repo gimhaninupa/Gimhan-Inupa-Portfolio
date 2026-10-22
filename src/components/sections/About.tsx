@@ -34,10 +34,10 @@ export function About() {
                     >
                         <h2 className="text-3xl md:text-4xl font-bold mb-6 text-slate-100">
                             <br />
-                            <span className="text-brand">About</span> <span className="text-purple-500">Me</span>
+                            <span className="text-brand">About Me</span>
                         </h2>
 
-                        <div className="space-y-4 text-slate-400 text-base leading-relaxed">
+                        <div className="space-y-4 text-slate-300 text-base leading-relaxed">
                             <p>
                                 I’m a Software Engineering undergraduate at Sri Lanka Technological Campus (SLTC) and a freelance photographer, passionate about blending technology with creativity. With a strong foundation in software development, web technologies, and data driven problem solving, I enjoy building innovative digital solutions that make an impact.
                             </p>
@@ -48,24 +48,24 @@ export function About() {
 
                         <div className="mt-8 grid grid-cols-2 md:grid-cols-3 gap-6">
                             {/* Projects Card */}
-                            <div className="flex flex-col items-center justify-center p-6 bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 hover:shadow-md transition-shadow group">
+                            <div className="flex flex-col items-center justify-center p-6 bg-slate-900 rounded-2xl shadow-sm border border-slate-800 hover:shadow-md transition-shadow group">
                                 <GitBranch className="w-8 h-8 text-brand mb-4 group-hover:scale-110 transition-transform" />
-                                <span className="text-3xl font-bold text-slate-900 dark:text-slate-100">6+</span>
-                                <span className="text-xs font-bold text-slate-500 uppercase tracking-widest mt-2">Projects</span>
+                                <span className="text-3xl font-bold text-slate-100">6+</span>
+                                <span className="text-xs font-bold text-slate-400 uppercase tracking-widest mt-2">Projects</span>
                             </div>
 
                             {/* Experience Card */}
-                            <div className="flex flex-col items-center justify-center p-6 bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 hover:shadow-md transition-shadow group">
+                            <div className="flex flex-col items-center justify-center p-6 bg-slate-900 rounded-2xl shadow-sm border border-slate-800 hover:shadow-md transition-shadow group">
                                 <Code className="w-8 h-8 text-brand mb-4 group-hover:scale-110 transition-transform" />
-                                <span className="text-3xl font-bold text-slate-900 dark:text-slate-100">2+</span>
-                                <span className="text-xs font-bold text-slate-500 uppercase tracking-widest mt-2">Experience</span>
+                                <span className="text-3xl font-bold text-slate-100">2+</span>
+                                <span className="text-xs font-bold text-slate-400 uppercase tracking-widest mt-2">Experience</span>
                             </div>
 
                             {/* Photography Card */}
-                            <div className="flex flex-col items-center justify-center p-6 bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 hover:shadow-md transition-shadow group">
+                            <div className="flex flex-col items-center justify-center p-6 bg-slate-900 rounded-2xl shadow-sm border border-slate-800 hover:shadow-md transition-shadow group">
                                 <Camera className="w-8 h-8 text-brand mb-4 group-hover:scale-110 transition-transform" />
-                                <span className="text-3xl font-bold text-slate-900 dark:text-slate-100">2+</span>
-                                <span className="text-xs font-bold text-slate-500 uppercase tracking-widest mt-2">Years Photography</span>
+                                <span className="text-3xl font-bold text-slate-100">2+</span>
+                                <span className="text-xs font-bold text-slate-400 uppercase tracking-widest mt-2">Years Photography</span>
                             </div>
                         </div>
                     </motion.div>
