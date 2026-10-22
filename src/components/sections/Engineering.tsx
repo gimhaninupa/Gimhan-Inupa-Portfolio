@@ -1,68 +1,114 @@
 
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { projects, skills, type Project } from '../../data/projects';
-import { ProjectCard } from '../ui/ProjectCard';
-import { Github, ExternalLink, X, Code2, ChevronDown, ChevronUp } from 'lucide-react';
+import { DepthCarousel } from '../ui/DepthCarousel';
+import { useTheme } from '../../context/ThemeContext';
+import { Github, ExternalLink, X, Code2, Maximize2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export function Engineering() {
+    const { theme } = useTheme();
+    const isDark = theme === 'dark';
     const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-    const [showAll, setShowAll] = useState(false);
 
-    const displayedProjects = showAll ? projects : projects.slice(0, 3);
+    const carouselItems = useMemo(() => {
+        return projects.map((p) => ({
+            id: p.id,
+            image: p.image || '',
+            alt: p.title,
+            title: p.title,
+            description: p.description,
+            tags: p.tags,
+            isMobile: p.id === 'fitunique' || p.id === 'taskmaster',
+            original: p
+        }));
+    }, []);
 
     return (
-        <section id="engineering" className="py-24 bg-slate-950 relative">
+        <section id="engineering" className="py-24 bg-transparent relative overflow-hidden">
             <div className="max-w-7xl mx-auto px-6">
 
                 {/* Section Header */}
-                <div className="mb-20">
+                <div className="mb-14">
                     <motion.h2
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        className="text-4xl md:text-5xl font-bold mb-6 text-slate-100"
+                        className="text-4xl md:text-5xl font-bold mb-4 text-slate-100"
                     >
                         Featured <span className="text-brand">Projects</span>
                     </motion.h2>
-                    <div className="w-20 h-1 bg-brand rounded-full" />
+                    <div className="w-20 h-1 bg-brand rounded-full mb-3" />
+                    <p className="text-slate-400 text-sm md:text-base max-w-xl">
+                        Interactive 3D depth showcase of software engineering work. Drag, scroll, or click cards to view details.
+                    </p>
                 </div>
 
-                {/* Projects Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-                    <AnimatePresence mode="popLayout">
-                        {displayedProjects.map((project, index) => (
-                            <ProjectCard
-                                key={project.id}
-                                project={project}
-                                index={index}
-                                onClick={setSelectedProject}
-                            />
-                        ))}
-                    </AnimatePresence>
-                </div>
+                {/* 3D Depth Carousel View */}
+                <div className="relative w-full h-[480px] sm:h-[520px] md:h-[580px] mb-24 flex items-center justify-center">
 
-                {/* View More Button */}
-                {projects.length > 3 && (
-                    <div className="flex justify-center mb-32">
-                        <motion.button
-                            onClick={() => setShowAll(!showAll)}
-                            initial={{ opacity: 0, y: 10 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            className="group flex items-center gap-2 px-8 py-3 bg-slate-900 border border-slate-800 text-slate-300 rounded-full font-semibold hover:bg-slate-800 hover:text-brand transition-all shadow-lg"
-                        >
-                            <span>{showAll ? "Show Less" : "View More Projects"}</span>
-                            {showAll ? (
-                                <ChevronUp className="w-5 h-5 group-hover:-translate-y-1 transition-transform" />
-                            ) : (
-                                <ChevronDown className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
-                            )}
-                        </motion.button>
-                    </div>
-                )}
+                    <DepthCarousel
+                        items={carouselItems}
+                        cardWidth={640}
+                        cardHeight={285}
+                        radius={24}
+                        depth={240}
+                        spread={110}
+                        tilt={22}
+                        tiltDirection="right"
+                        perspective={1400}
+                        visibleCards={4}
+                        falloff={0.22}
+                        blur={6}
+                        tint={isDark ? '#05060a' : '#cbd5e1'}
+                        autoplay={true}
+                        autoplayDelay={3600}
+                        loop={true}
+                        showControls={true}
+                        showIndicators={true}
+                        onItemClick={(item) => setSelectedProject((item.original as Project) || null)}
+                        renderCardOverlay={(item, _index, isActive) => (
+                            <div
+                                className={`absolute inset-x-0 bottom-0 p-4 md:p-6 bg-gradient-to-t from-white/95 via-white/80 to-transparent dark:from-slate-950/95 dark:via-slate-950/80 transition-all duration-300 pointer-events-none z-10 ${
+                                    isActive ? 'opacity-100' : 'opacity-0'
+                                }`}
+                            >
+                                <div className="flex items-end justify-between gap-4">
+                                    <div className="min-w-0 flex-1">
+                                        <h3 className="text-xl md:text-2xl font-bold text-slate-100 tracking-wide drop-shadow-sm truncate mb-1">
+                                            {item.title}
+                                        </h3>
+                                        <p className="text-xs md:text-sm text-slate-300 line-clamp-1 drop-shadow-sm max-w-lg mb-2">
+                                            {item.description}
+                                        </p>
+                                        <div className="flex flex-wrap gap-1.5">
+                                            {((item.tags as string[]) || []).slice(0, 3).map((tag) => (
+                                                <span
+                                                    key={tag}
+                                                    className="px-2.5 py-0.5 text-xs font-medium text-slate-100 bg-slate-900/90 border border-slate-800 rounded-md backdrop-blur-md shadow-sm"
+                                                >
+                                                    {tag}
+                                                </span>
+                                            ))}
+                                            {((item.tags as string[]) || []).length > 3 && (
+                                                <span className="px-2 py-0.5 text-xs font-medium text-slate-400 bg-slate-900/70 border border-slate-800 rounded-md">
+                                                    +{((item.tags as string[]) || []).length - 3}
+                                                </span>
+                                            )}
+                                        </div>
+                                    </div>
+
+                                    <div className="shrink-0 mb-1">
+                                        <span className="p-3 rounded-2xl bg-brand text-white shadow-xl shadow-brand/40 flex items-center justify-center">
+                                            <Maximize2 size={16} />
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+                    />
+                </div>
 
                 {/* Skills Section */}
                 <div>

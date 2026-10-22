@@ -17,7 +17,7 @@ export function ProjectVideoPage() {
     }
 
     return (
-        <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex flex-col pt-20"> {/* pt-20 for navbar space */}
+        <div className="min-h-screen bg-transparent flex flex-col pt-20"> {/* pt-20 for navbar space */}
             <div className="max-w-7xl mx-auto px-6 w-full flex-1 flex flex-col">
 
                 {/* Header / Back Button */}

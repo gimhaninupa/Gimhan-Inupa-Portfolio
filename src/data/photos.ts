@@ -16,12 +16,13 @@ export interface Album {
 const generatePhotos = (albumId: string, folderName: string, count: number, excludeList: number[] = []) => {
   const photos = [];
   let fileNum = 1;
+  const safeFolder = encodeURIComponent(folderName);
   while (photos.length < count) {
     if (!excludeList.includes(fileNum)) {
       photos.push({
         id: `${albumId}-${photos.length + 1}`,
         // Assuming .jpg - change extension if needed
-        url: `/images/albums/${folderName}/${fileNum}.jpg`,
+        url: `/images/albums/${safeFolder}/${fileNum}.jpg`,
         // Randomize aspect ratio for the masonry layout
         aspectRatio: [1.5, 0.8, 1][photos.length % 3],
       });

@@ -25,7 +25,7 @@ export function Footer() {
     };
 
     return (
-        <footer className="bg-slate-950 py-20 border-t border-slate-900">
+        <footer className="bg-transparent py-20 border-t border-slate-800/50">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 mb-16">
                     {/* Column 1: Brand & Description */}
@@ -46,7 +46,7 @@ export function Footer() {
                                 { name: 'Home', href: '/' },
                                 { name: 'About Me', href: '#about' },
                                 { name: 'Engineering', href: '#engineering' },
-                                { name: 'Photography', href: '/photography' },
+                                { name: 'Photography', href: '#photography' },
                                 { name: 'Contact', href: '#contact' }
                             ].map((item) => (
                                 <button

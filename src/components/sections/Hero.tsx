@@ -1,10 +1,9 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Camera, Code } from 'lucide-react';
-import { Link } from 'react-router-dom';
 
 export function Hero() {
     return (
-        <section className="relative min-h-screen pt-32 flex items-center justify-center overflow-hidden bg-slate-950 selection:bg-brand/30 selection:text-white">
+        <section className="relative min-h-screen pt-32 flex items-center justify-center overflow-hidden bg-transparent selection:bg-brand/30 selection:text-white">
 
             {/* Background Elements - Light Theme (using brand/purple glows) */}
             <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
@@ -84,13 +83,13 @@ export function Hero() {
                                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </a>
 
-                            <Link
-                                to="/photography"
+                            <a
+                                href="#photography"
                                 className="group flex items-center gap-2 px-8 py-4 bg-transparent border border-brand/20 text-brand rounded-full font-bold hover:bg-brand/5 transition-all text-lg"
                             >
                                 <Camera className="w-5 h-5" />
                                 <span>Visual Gallery</span>
-                            </Link>
+                            </a>
                         </motion.div>
                     </div>
                 </div>

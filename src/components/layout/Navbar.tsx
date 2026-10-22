@@ -41,7 +41,7 @@ export function Navbar() {
     const navLinks = [
         { name: 'About', href: '#about' },
         { name: 'Engineering', href: '#engineering' },
-        { name: 'Photography', href: '/photography' },
+        { name: 'Photography', href: '#photography' },
         { name: 'Certifications', href: '#certificates' },
         { name: 'Experience', href: '#experience' },
     ];

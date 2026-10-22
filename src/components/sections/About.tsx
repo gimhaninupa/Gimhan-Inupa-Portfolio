@@ -3,7 +3,7 @@ import { GitBranch, Code, Camera } from 'lucide-react';
 
 export function About() {
     return (
-        <section id="about" className="py-24 bg-slate-950 relative overflow-hidden">
+        <section id="about" className="py-24 bg-transparent relative overflow-hidden">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="flex flex-col md:flex-row items-center gap-16">
 

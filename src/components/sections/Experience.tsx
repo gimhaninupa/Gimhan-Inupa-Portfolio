@@ -49,7 +49,7 @@ export function Experience() {
     ];
 
     return (
-        <section id="experience" className="py-24 bg-slate-50 dark:bg-slate-950 relative">
+        <section id="experience" className="py-24 bg-transparent relative">
             <div className="max-w-6xl mx-auto px-6">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}

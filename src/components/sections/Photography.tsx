@@ -1,21 +1,32 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { albums, type Album } from '../../data/photos';
+import { CircularGallery, type CircularGalleryItem } from '../ui/CircularGallery';
+import { useTheme } from '../../context/ThemeContext';
 import { ArrowLeft, X, ChevronLeft, ChevronRight, ZoomIn, ZoomOut } from 'lucide-react';
 
 export function Photography() {
+    const { theme } = useTheme();
+    const isDark = theme === 'dark';
     const [selectedAlbum, setSelectedAlbum] = useState<Album | null>(null);
     const [currentPhotoIndex, setCurrentPhotoIndex] = useState<number | null>(null);
     const [zoomLevel, setZoomLevel] = useState(1);
 
-    // Reset zoom when changing photos
-    useEffect(() => {
-        setZoomLevel(1);
-    }, [currentPhotoIndex]);
+    const galleryItems: CircularGalleryItem[] = useMemo(() => {
+        return albums.map((album) => ({
+            image: album.photos[0]?.url || '',
+            text: album.title,
+            description: `${album.photoCount} High-Resolution Photographs • Curated Collection`,
+            alt: album.title,
+            album: album
+        }));
+    }, []);
 
+    // Reset zoom when changing photos
     const handleNext = useCallback((e?: React.MouseEvent) => {
         e?.stopPropagation();
         if (selectedAlbum && currentPhotoIndex !== null) {
+            setZoomLevel(1);
             setCurrentPhotoIndex((prev) => (prev! + 1) % selectedAlbum.photos.length);
         }
     }, [selectedAlbum, currentPhotoIndex]);
@@ -23,6 +34,7 @@ export function Photography() {
     const handlePrev = useCallback((e?: React.MouseEvent) => {
         e?.stopPropagation();
         if (selectedAlbum && currentPhotoIndex !== null) {
+            setZoomLevel(1);
             setCurrentPhotoIndex((prev) => (prev! - 1 + selectedAlbum.photos.length) % selectedAlbum.photos.length);
         }
     }, [selectedAlbum, currentPhotoIndex]);
@@ -52,55 +64,64 @@ export function Photography() {
     }, [currentPhotoIndex, handleNext, handlePrev, handleClose]);
 
     return (
-        <section id="photography" className="pt-32 pb-20 bg-slate-950 relative min-h-screen">
+        <section id="photography" className="py-24 bg-transparent relative">
             <div className="max-w-7xl mx-auto px-6">
 
                 {/* Header */}
                 <AnimatePresence mode="wait">
                     {!selectedAlbum && (
                         <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            className="mb-12"
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            className="mb-8"
                         >
-                            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-100">
+                            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-slate-100">
                                 Visual <span className="text-brand">Stories</span>
                             </h2>
-                            <div className="w-20 h-1 bg-brand rounded-full" />
+                            <div className="w-20 h-1 bg-brand rounded-full mb-3" />
+                            <p className="text-slate-400 text-sm md:text-base max-w-xl">
+                                Panoramic WebGL arched gallery of photographic collections. Drag or scroll through albums, and click any card to open the full album.
+                            </p>
                         </motion.div>
                     )}
                 </AnimatePresence>
 
-                {/* Album Grid */}
+                {/* 3D Circular Gallery View */}
                 <AnimatePresence mode="wait">
                     {!selectedAlbum ? (
                         <motion.div
-                            key="albums-grid"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                            key="circular-gallery-view"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -20 }}
+                            transition={{ duration: 0.4 }}
+                            className="flex flex-col items-center"
                         >
-                            {albums.map((album) => (
-                                <motion.div
-                                    key={album.id}
-                                    layoutId={`album-${album.id}`}
-                                    onClick={() => setSelectedAlbum(album)}
-                                    className="group cursor-pointer relative aspect-[4/5] overflow-hidden rounded-xl bg-slate-900 shadow-md hover:shadow-xl transition-all duration-300 border border-slate-800"
-                                >
-                                    <img
-                                        src={album.photos[0].url}
-                                        alt={album.title}
-                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-90" />
-                                    <div className="absolute bottom-0 left-0 p-8">
-                                        <h3 className="text-2xl font-bold text-white mb-2">{album.title}</h3>
-                                        <p className="text-white/80 text-sm uppercase tracking-wider">{album.photoCount} Photos</p>
-                                    </div>
-                                </motion.div>
-                            ))}
+                            {/* Curved WebGL Arc Gallery Container */}
+                            <div className="relative w-full h-[560px] sm:h-[620px] md:h-[660px] flex items-center justify-center">
+                                <CircularGallery
+                                    items={galleryItems}
+                                    bend={3}
+                                    textColor={isDark ? '#f8fafc' : '#002455'}
+                                    borderRadius={0.06}
+                                    scrollEase={0.05}
+                                    scrollSpeed={2}
+                                    itemSize={1.05}
+                                    itemAspect={0.78}
+                                    gap={0.24}
+                                    wave={1}
+                                    fadeEdges={0.14}
+                                    shadow={0.3}
+                                    snap={true}
+                                    openOnClick={false}
+                                    onItemClick={(item, index) => {
+                                        const album = (item as { album?: Album })?.album || albums[index];
+                                        if (album) setSelectedAlbum(album);
+                                    }}
+                                    className="w-full h-full"
+                                />
+                            </div>
                         </motion.div>
                     ) : (
                         <motion.div
@@ -127,7 +148,10 @@ export function Photography() {
                                         animate={{ opacity: 1, y: 0 }}
                                         transition={{ delay: index * 0.1 }}
                                         className="break-inside-avoid relative group rounded-lg overflow-hidden cursor-zoom-in shadow-sm hover:shadow-md transition-shadow"
-                                        onClick={() => setCurrentPhotoIndex(index)}
+                                        onClick={() => {
+                                            setZoomLevel(1);
+                                            setCurrentPhotoIndex(index);
+                                        }}
                                     >
                                         <img
                                             src={photo.url}

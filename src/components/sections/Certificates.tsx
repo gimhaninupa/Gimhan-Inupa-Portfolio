@@ -8,7 +8,7 @@ export function Certificates() {
 
     const displayedCertificates = showAll ? certificates : certificates.slice(0, 3);
     return (
-        <section id="certificates" className="py-24 bg-slate-950 relative">
+        <section id="certificates" className="py-24 bg-transparent relative">
             <div className="max-w-7xl mx-auto px-6">
 
                 {/* Header */}
