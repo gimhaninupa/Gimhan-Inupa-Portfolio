@@ -2,9 +2,9 @@
 import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { projects, skills, type Project } from '../../data/projects';
-import { DepthCarousel } from '../ui/DepthCarousel';
+import { AccordionGallery, type AccordionGalleryItem } from '../ui/AccordionGallery';
 import { useTheme } from '../../context/ThemeContext';
-import { Github, ExternalLink, X, Code2, Maximize2 } from 'lucide-react';
+import { Github, ExternalLink, X, Code2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export function Engineering() {
@@ -12,15 +12,12 @@ export function Engineering() {
     const isDark = theme === 'dark';
     const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
-    const carouselItems = useMemo(() => {
+    const galleryItems: AccordionGalleryItem[] = useMemo(() => {
         return projects.map((p) => ({
-            id: p.id,
             image: p.image || '',
+            label: p.title,
+            sublabel: p.description,
             alt: p.title,
-            title: p.title,
-            description: p.description,
-            tags: p.tags,
-            isMobile: p.id === 'fitunique' || p.id === 'taskmaster',
             original: p
         }));
     }, []);
@@ -41,72 +38,26 @@ export function Engineering() {
                     </motion.h2>
                     <div className="w-20 h-1 bg-brand rounded-full mb-3" />
                     <p className="text-slate-400 text-sm md:text-base max-w-xl">
-                        Interactive 3D depth showcase of software engineering work. Drag, scroll, or click cards to view details.
+                        Interactive showcase of software engineering work. Hover or click cards to expand and explore details.
                     </p>
                 </div>
 
-                {/* 3D Depth Carousel View */}
-                <div className="relative w-full h-[480px] sm:h-[520px] md:h-[580px] mb-24 flex items-center justify-center">
-
-                    <DepthCarousel
-                        items={carouselItems}
-                        cardWidth={640}
-                        cardHeight={285}
-                        radius={24}
-                        depth={240}
-                        spread={110}
-                        tilt={22}
-                        tiltDirection="right"
-                        perspective={1400}
-                        visibleCards={4}
-                        falloff={0.22}
-                        blur={6}
-                        tint={isDark ? '#05060a' : '#cbd5e1'}
-                        autoplay={true}
-                        autoplayDelay={3600}
-                        loop={true}
-                        showControls={true}
-                        showIndicators={true}
+                {/* Interactive Accordion Gallery Showcase */}
+                <div className="relative w-full mb-24">
+                    <AccordionGallery
+                        items={galleryItems}
+                        defaultIndex={2}
+                        expandRatio={0.46}
+                        trigger="hover"
+                        accentColor={isDark ? '#38bdf8' : '#002455'}
+                        overlayColor={isDark ? '#020617' : '#0a0f1d'}
+                        textColor="#ffffff"
+                        height={480}
+                        radius={20}
+                        gap={12}
+                        tilt={7}
+                        parallax={0.35}
                         onItemClick={(item) => setSelectedProject((item.original as Project) || null)}
-                        renderCardOverlay={(item, _index, isActive) => (
-                            <div
-                                className={`absolute inset-x-0 bottom-0 p-4 md:p-6 bg-gradient-to-t from-white/95 via-white/80 to-transparent dark:from-slate-950/95 dark:via-slate-950/80 transition-all duration-300 pointer-events-none z-10 ${
-                                    isActive ? 'opacity-100' : 'opacity-0'
-                                }`}
-                            >
-                                <div className="flex items-end justify-between gap-4">
-                                    <div className="min-w-0 flex-1">
-                                        <h3 className="text-xl md:text-2xl font-bold text-slate-100 tracking-wide drop-shadow-sm truncate mb-1">
-                                            {item.title}
-                                        </h3>
-                                        <p className="text-xs md:text-sm text-slate-300 line-clamp-1 drop-shadow-sm max-w-lg mb-2">
-                                            {item.description}
-                                        </p>
-                                        <div className="flex flex-wrap gap-1.5">
-                                            {((item.tags as string[]) || []).slice(0, 3).map((tag) => (
-                                                <span
-                                                    key={tag}
-                                                    className="px-2.5 py-0.5 text-xs font-medium text-slate-100 bg-slate-900/90 border border-slate-800 rounded-md backdrop-blur-md shadow-sm"
-                                                >
-                                                    {tag}
-                                                </span>
-                                            ))}
-                                            {((item.tags as string[]) || []).length > 3 && (
-                                                <span className="px-2 py-0.5 text-xs font-medium text-slate-400 bg-slate-900/70 border border-slate-800 rounded-md">
-                                                    +{((item.tags as string[]) || []).length - 3}
-                                                </span>
-                                            )}
-                                        </div>
-                                    </div>
-
-                                    <div className="shrink-0 mb-1">
-                                        <span className="p-3 rounded-2xl bg-brand text-white shadow-xl shadow-brand/40 flex items-center justify-center">
-                                            <Maximize2 size={16} />
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        )}
                     />
                 </div>
 
@@ -134,22 +85,22 @@ export function Engineering() {
                             {[...skills, ...skills].map((skill, index) => (
                                 <motion.div
                                     key={`${skill.name}-${index}`}
-                                    animate={{ y: [0, -20, 0] }}
+                                    animate={{ y: [0, -16, 0] }}
                                     transition={{
-                                        duration: 2,
+                                        duration: 2.2,
                                         repeat: Infinity,
                                         ease: "easeInOut",
-                                        delay: index * 0.1,
+                                        delay: index * 0.12,
                                     }}
-                                    className="flex items-center gap-3 px-6 py-3 bg-slate-900 border border-slate-800 rounded-full shadow-sm min-w-max"
+                                    title={skill.name}
+                                    className="flex items-center justify-center w-14 h-14 md:w-16 md:h-16 p-3 bg-slate-900 border border-slate-800 rounded-2xl shadow-sm shrink-0 hover:border-brand/50 hover:scale-110 transition-all duration-300 group cursor-default"
                                 >
                                     <img
                                         src={skill.icon}
                                         alt={skill.name}
-                                        className="w-5 h-5 opacity-70"
+                                        className="w-7 h-7 md:w-8 md:h-8 object-contain opacity-80 group-hover:opacity-100 transition-opacity"
                                         loading="lazy"
                                     />
-                                    <span className="text-slate-300 font-medium">{skill.name}</span>
                                 </motion.div>
                             ))}
                         </motion.div>

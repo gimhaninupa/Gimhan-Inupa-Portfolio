@@ -3,6 +3,9 @@ import { motion } from 'framer-motion';
 import { Mail, MapPin, Send } from 'lucide-react';
 import { contactData } from '../../data/contact';
 
+const COOLDOWN_SECONDS = 45;
+const RATE_LIMIT_STORAGE_KEY = 'contact_form_last_submission';
+
 export function Contact() {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [result, setResult] = useState("");
@@ -10,11 +13,36 @@ export function Contact() {
     const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const form = event.currentTarget; // Capture form reference immediately
+
+        // Client-side rate-limiting / cooldown check
+        const lastSent = sessionStorage.getItem(RATE_LIMIT_STORAGE_KEY);
+        if (lastSent) {
+            const elapsed = (Date.now() - parseInt(lastSent, 10)) / 1000;
+            if (elapsed < COOLDOWN_SECONDS) {
+                const remaining = Math.ceil(COOLDOWN_SECONDS - elapsed);
+                setResult(`Please wait ${remaining}s before sending another message.`);
+                return;
+            }
+        }
+
+        const formData = new FormData(form);
+        const name = (formData.get("name") as string || "").trim();
+        const email = (formData.get("email") as string || "").trim();
+        const message = (formData.get("message") as string || "").trim();
+
+        if (!name || !email || !message) {
+            setResult("Please fill out all required fields.");
+            return;
+        }
+
         setIsSubmitting(true);
         setResult("");
-        const formData = new FormData(form);
 
-        formData.append("access_key", "bc5b705f-070f-41c6-b37e-6092b4e21fe8");
+        const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || "bc5b705f-070f-41c6-b37e-6092b4e21fe8";
+        formData.set("name", name);
+        formData.set("email", email);
+        formData.set("message", message);
+        formData.append("access_key", accessKey);
         formData.append("subject", "New Contact Form Submission from Portfolio");
 
         try {
@@ -27,6 +55,7 @@ export function Contact() {
 
             if (data.success) {
                 setResult("Message sent successfully!");
+                sessionStorage.setItem(RATE_LIMIT_STORAGE_KEY, Date.now().toString());
                 form.reset(); // Use captured form reference
             } else {
                 console.error("Error", data);
@@ -41,8 +70,8 @@ export function Contact() {
             }
         } finally {
             setIsSubmitting(false);
-            // Clear message after 5 seconds
-            setTimeout(() => setResult(""), 5000);
+            // Clear message after 6 seconds
+            setTimeout(() => setResult(""), 6000);
         }
     };
 
@@ -156,6 +185,8 @@ export function Contact() {
                                     type="text"
                                     name="name"
                                     required
+                                    maxLength={100}
+                                    autoComplete="name"
                                     placeholder="Your Name"
                                     className="w-full bg-slate-950 border border-slate-800 rounded-xl px-5 py-4 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-brand/50 focus:ring-1 focus:ring-brand/50 transition-all"
                                 />
@@ -167,6 +198,8 @@ export function Contact() {
                                     type="email"
                                     name="email"
                                     required
+                                    maxLength={150}
+                                    autoComplete="email"
                                     placeholder="your@email.com"
                                     className="w-full bg-slate-950 border border-slate-800 rounded-xl px-5 py-4 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-brand/50 focus:ring-1 focus:ring-brand/50 transition-all"
                                 />
@@ -178,6 +211,7 @@ export function Contact() {
                                     rows={4}
                                     name="message"
                                     required
+                                    maxLength={3000}
                                     placeholder="Your message..."
                                     className="w-full bg-slate-950 border border-slate-800 rounded-xl px-5 py-4 text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-brand/50 focus:ring-1 focus:ring-brand/50 transition-all resize-none"
                                 />
