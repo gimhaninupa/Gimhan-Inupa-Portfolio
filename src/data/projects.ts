@@ -99,25 +99,98 @@ export const projects: Project[] = [
     },
 ];
 
-export const skills = [
-    { name: "Python", icon: "https://cdn.simpleicons.org/python" },
-    { name: "JavaScript", icon: "https://cdn.simpleicons.org/javascript" },
-    { name: "HTML5", icon: "https://cdn.simpleicons.org/html5" },
-    { name: "CSS3", icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" },
-    { name: "React", icon: "https://cdn.simpleicons.org/react" },
-    { name: "Flask", icon: "https://cdn.simpleicons.org/flask" },
-    { name: "Tailwind CSS", icon: "https://cdn.simpleicons.org/tailwindcss" },
-    { name: "Next.js", icon: "https://cdn.simpleicons.org/nextdotjs" },
-    { name: "Figma", icon: "https://cdn.simpleicons.org/figma" },
-    { name: "PostgreSQL", icon: "https://cdn.simpleicons.org/postgresql" },
-    { name: "Git", icon: "https://cdn.simpleicons.org/git" },
-    { name: "GitHub", icon: "https://cdn.simpleicons.org/github" },
-    { name: "Render", icon: "https://cdn.simpleicons.org/render" },
-    { name: "Vercel", icon: "https://cdn.simpleicons.org/vercel" },
-    { name: "WordPress", icon: "https://cdn.simpleicons.org/wordpress" },
-    { name: "Flutter", icon: "https://cdn.simpleicons.org/flutter" },
-    { name: "Dart", icon: "https://cdn.simpleicons.org/dart" },
-    { name: "Adobe Photoshop", icon: "/icons/photoshop.svg" },
-    { name: "Adobe Premiere Pro", icon: "/icons/premiere.svg" },
-    { name: "Adobe Lightroom", icon: "/icons/lightroom.svg" }
+export interface Skill {
+    name: string;
+    icon: string;
+    darkIcon?: string;
+}
+
+export const skills: Skill[] = [
+    {
+        name: "Python",
+        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg"
+    },
+    {
+        name: "JavaScript",
+        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg"
+    },
+    {
+        name: "HTML5",
+        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg"
+    },
+    {
+        name: "CSS3",
+        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg"
+    },
+    {
+        name: "React",
+        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg"
+    },
+    {
+        name: "Flask",
+        icon: "https://cdn.simpleicons.org/flask",
+        darkIcon: "https://cdn.simpleicons.org/flask/white"
+    },
+    {
+        name: "Tailwind CSS",
+        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/tailwindcss/tailwindcss-original.svg"
+    },
+    {
+        name: "Next.js",
+        icon: "https://cdn.simpleicons.org/nextdotjs",
+        darkIcon: "https://cdn.simpleicons.org/nextdotjs/white"
+    },
+    {
+        name: "Figma",
+        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/figma/figma-original.svg"
+    },
+    {
+        name: "PostgreSQL",
+        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg"
+    },
+    {
+        name: "Git",
+        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg"
+    },
+    {
+        name: "GitHub",
+        icon: "https://cdn.simpleicons.org/github",
+        darkIcon: "https://cdn.simpleicons.org/github/white"
+    },
+    {
+        name: "Render",
+        icon: "https://cdn.simpleicons.org/render",
+        darkIcon: "https://cdn.simpleicons.org/render/white"
+    },
+    {
+        name: "Vercel",
+        icon: "https://cdn.simpleicons.org/vercel",
+        darkIcon: "https://cdn.simpleicons.org/vercel/white"
+    },
+    {
+        name: "WordPress",
+        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/wordpress/wordpress-plain.svg",
+        darkIcon: "https://cdn.simpleicons.org/wordpress/white"
+    },
+    {
+        name: "Flutter",
+        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/flutter/flutter-original.svg"
+    },
+    {
+        name: "Dart",
+        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/dart/dart-original.svg"
+    },
+    {
+        name: "Adobe Photoshop",
+        icon: "/icons/photoshop.svg"
+    },
+    {
+        name: "Adobe Premiere Pro",
+        icon: "/icons/premiere.svg"
+    },
+    {
+        name: "Adobe Lightroom",
+        icon: "/icons/lightroom.svg"
+    }
 ];
+

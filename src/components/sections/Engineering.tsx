@@ -93,12 +93,12 @@ export function Engineering() {
                                         delay: index * 0.12,
                                     }}
                                     title={skill.name}
-                                    className="flex items-center justify-center w-14 h-14 md:w-16 md:h-16 p-3 bg-slate-900 border border-slate-800 rounded-2xl shadow-sm shrink-0 hover:border-brand/50 hover:scale-110 transition-all duration-300 group cursor-default"
+                                    className="flex items-center justify-center w-14 h-14 md:w-16 md:h-16 p-3 bg-white/90 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/60 rounded-2xl shadow-lg shadow-black/20 shrink-0 hover:border-brand/60 hover:bg-white dark:hover:bg-slate-800 hover:scale-110 transition-all duration-300 group cursor-default backdrop-blur-sm"
                                 >
                                     <img
-                                        src={skill.icon}
+                                        src={(isDark && skill.darkIcon) ? skill.darkIcon : skill.icon}
                                         alt={skill.name}
-                                        className="w-7 h-7 md:w-8 md:h-8 object-contain opacity-80 group-hover:opacity-100 transition-opacity"
+                                        className="w-7 h-7 md:w-8 md:h-8 object-contain transition-transform duration-300 group-hover:scale-110 drop-shadow-sm"
                                         loading="lazy"
                                     />
                                 </motion.div>
