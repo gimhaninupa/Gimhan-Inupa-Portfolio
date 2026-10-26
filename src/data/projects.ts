@@ -31,7 +31,7 @@ export const projects: Project[] = [
         description: "A Cinematic Photography Website",
         tags: ["HTML/CSS/JS", "Web Design", "Frontend Development"],
         links: {
-            demo: "https://www.arclightsl.com/",
+            demo: "https://arclight-portfolio.vercel.app/",
             github: "https://github.com/gimhaninupa/arclight-portfolio"
         },
         image: "/images/projects/Projects/ARCLIGHT/ARCLIGHT.png",
