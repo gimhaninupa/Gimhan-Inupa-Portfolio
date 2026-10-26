@@ -2,7 +2,7 @@
 
 A dual-identity personal portfolio website designed to showcase my work as both a **Software Engineer** and a **Photographer**. Built with **React**, **TypeScript**, and **Tailwind CSS**.
 
-🌐 **Live Demo:** [gimhaninupa.com](https://gimhan-inupa-portfolio.vercel.app/)
+🌐 **Live Demo:** [https://gimhan-inupa-portfolio.vercel.app/](https://gimhan-inupa-portfolio.vercel.app/)
 
 ---
 
