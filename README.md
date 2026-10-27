@@ -8,14 +8,15 @@ A dual-identity personal portfolio website designed to showcase my work as both 
 
 ## ✨ Features
 
-* **Dual-Persona Interface:** A unique homepage entry point separating "Software Engineer" and "Photographer" portfolios.
-* **🎨 Dynamic Theme Switcher:** Fully functional Light/Dark mode with persistent state.
-* **📱 Fully Responsive:** Optimized layout for Desktop, Tablet, and Mobile devices.
+* **🌌 WebGL Galaxy Background:** Custom interactive GLSL particle starfield with real-time mouse repulsion and warp effects.
+* **🗂️ Interactive Project Showcase:** GSAP-powered accordion gallery with project detail modals and dedicated video demo pages.
+* **🌀 3D Photography Carousel:** Curved WebGL album carousel opening into masonry collections with a full-featured zoomable lightbox.
+* **🎨 Dynamic Theme Switcher:** Fully functional Light/Dark mode with persistent state and custom color palettes.
+* **📱 Fully Responsive:** Clean, optimized layout across desktop, tablet, and mobile devices.
 * **⚡ High Performance:** Built with **Vite** for lightning-fast reloading and optimized production builds.
-* **🖼️ Photography Gallery:** Custom masonry layout for displaying high-resolution photography.
-* **🎥 Project Showcase:** Detailed project cards with video demo integration.
-* **✨ Smooth Animations:** Powered by **Framer Motion** for polished page transitions and scroll effects.
-* **📧 Contact Integration:** Functional contact form integrated with **Web3Forms** for reliable email delivery.
+* **✨ Smooth Animations:** Powered by **Framer Motion** and **GSAP** for polished page transitions and micro-interactions.
+* **⏳ Experience & Certifications:** Interactive career/education timeline alongside verified credential badges.
+* **📧 Contact Integration:** Functional contact form integrated with **Web3Forms** featuring client-side cooldown protection.
 
 ---
 
@@ -24,7 +25,9 @@ A dual-identity personal portfolio website designed to showcase my work as both 
 * **Frontend Framework:** React 19 (TypeScript)
 * **Build Tool:** Vite
 * **Styling:** Tailwind CSS 4
-* **Animations:** Framer Motion
+* **3D & Shaders:** WebGL (Custom GLSL)
+* **Animations:** Framer Motion & GSAP
 * **Routing:** React Router DOM
 * **Icons:** Lucide React
-* **Deployment:** Vercel / Netlify (Recommended)
+* **Contact Service:** Web3Forms
+* **Deployment:** Vercel (Custom Domain)
