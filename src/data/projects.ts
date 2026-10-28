@@ -14,6 +14,18 @@ export interface Project {
 
 export const projects: Project[] = [
     {
+        id: "trendsprout",
+        title: "TrendSprout",
+        description: "Next-Gen AI Fashion Marketplace & Design Studio",
+        tags: ["React (TypeScript)", "Tailwind CSS", " Uvicorn"],
+        links: {
+            demo: "https://trendsprout-two.vercel.app/",
+            github: "https://github.com/gimhaninupa/TRENDSPROUT"
+        },
+        image: "/images/projects/Projects/TRENDSPROUT/TRENDSPROUT.png",
+        buttonText: "Visit Website"
+    },
+    {
         id: "ecotrack",
         title: "EcoTrack",
         description: "Smart Waste Management System",
@@ -60,6 +72,29 @@ export const projects: Project[] = [
         },
         image: "/images/projects/Projects/Velora/Velora.png",
         buttonText: "Visit Website"
+    },
+    {
+        id: "gitgeniuslamp",
+        title: "GitGenius Lamp",
+        description: "A virtual oil lamp ceremony application.",
+        tags: ["Node.js", "WebSockets", "Vanilla JavaScript"],
+        links: {
+            demo: "https://gitgenius-oil-lamp.onrender.com/",
+            github: "https://github.com/gimhaninupa/GitGenius-Oil-Lamp"
+        },
+        image: "/images/projects/Projects/GitGeniusLamp/GitGeniusLamp.png",
+        buttonText: "Visit Website"
+    },
+    {
+        id: "AI_Powered_Career_Intelligence_System",
+        title: "AI Powered Career Intelligence System",
+        description: "An intelligent system for career guidance and job matching.",
+        tags: ["React", " Flask", " SpaCy "],
+        links: {
+            github: "https://github.com/gimhaninupa/AI-Powered-Career-Intelligence-System-"
+        },
+        image: "/images/projects/Projects/AI_Powered_Career_Intelligence_System/AI_Powered_Career_Intelligence_System.png",
+        buttonText: "Live Demo"
     },
     {
         id: "chatterbox",

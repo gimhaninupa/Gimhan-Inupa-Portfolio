@@ -50,7 +50,7 @@ export function About() {
                             {/* Projects Card */}
                             <div className="flex flex-col items-center justify-center p-6 bg-slate-900 rounded-2xl shadow-sm border border-slate-800 hover:shadow-md transition-shadow group">
                                 <GitBranch className="w-8 h-8 text-brand mb-4 group-hover:scale-110 transition-transform" />
-                                <span className="text-3xl font-bold text-slate-100">6+</span>
+                                <span className="text-3xl font-bold text-slate-100">10+</span>
                                 <span className="text-xs font-bold text-slate-400 uppercase tracking-widest mt-2">Projects</span>
                             </div>
 
